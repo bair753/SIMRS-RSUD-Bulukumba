@@ -228,6 +228,7 @@ return [
 
         'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class, // [2]
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
 
     ],
 
