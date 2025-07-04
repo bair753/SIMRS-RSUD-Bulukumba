@@ -6,7 +6,7 @@ WebApps Sistem Informasi Manajemen Rumah Sakit
 
 1. Clone repository `rsud_bulukumba`.
 ```sh
-git clone https://github.com/bair753/simrs-RSUD-Bulukumba.git
+git clone https://github.com/bair753/SIMRS-RSUD-Bulukumba.git
 ```
 2. Pindah ke *directory* `rsud_bulukumba`.
 ```sh
