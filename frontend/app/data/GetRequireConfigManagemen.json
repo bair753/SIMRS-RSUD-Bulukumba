@@ -1,8 +1,0 @@
-{
-    "path": [
-        {
-            "nameDep": "tesCtrl",
-            "urlDep": "module/SysAdmin/tesCtrl"
-        }
-    ]
-}

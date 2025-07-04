@@ -1,0 +1,841 @@
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: #aabcfe;
+    }
+
+    .tg td {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        padding: 10px 5px;
+        border-style: solid;
+        border-width: 1px;
+        overflow: hidden;
+        word-break: normal;
+        border-color: #aabcfe;
+        color: #669;
+        /* background-color: #e8edffe0; */
+        background-color: #e8edff;
+    }
+
+    .tg th {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        padding: 10px 5px;
+        border-style: solid;
+        border-width: 1px;
+        overflow: hidden;
+        word-break: normal;
+        border-color: #aabcfe;
+        color: #039;
+        background-color: #b9c9fe;
+    }
+
+    .tg .tg-yw4l {
+        vertical-align: top
+    }
+
+
+    .rowstyle {
+        border-bottom: 1px dashed lightblue
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 120%;
+        font-weight: 700;
+        margin-bottom: 20px
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #929191;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    /* table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 40px;
+
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    } */
+</style>
+<!-- <div ng-include='"../app/template/Shared/TemplateLoading"'></div> -->
+<div class="grid_12">
+    <div class="grid_12">
+        <div class="panel panel-default container_12">
+            <div class="panel-heading" c-translate> Penilaian Early Warning System (EWS) </div>
+        </div>
+        <div style="margin-top:10px">
+            <div class="grid_4">
+                <div class="grid_12">
+                    <label c-label item="item" c-label-text="Dokter"></label>
+                </div>
+                <div class="grid_12">
+                    <input style="width: 100%;" kendo-combo-box k-ng-model="item.obj[32104790]" k-data-text-field="'text'"
+                        k-data-value-field="'value'" k-filter="'contains'" k-auto-bind="false"
+                        k-data-source="listDokter" />
+                </div>
+            </div>
+            <div class="grid_4">
+                <div class="grid_12">
+                    <label c-label item="item" c-label-text="Diagnosa Medis "></label>
+                </div>
+                <div class="grid_12">
+                    <input style="width: 100%;" kendo-combo-box k-ng-model="item.obj[32104791]" k-data-text-field="'text'"
+                        k-data-value-field="'value'" k-filter="'contains'" k-auto-bind="false"
+                        k-data-source="listDiagnosa" />
+                </div>
+            </div>
+            <div class="grid_4">
+                <div class="grid_12">
+                    <label c-label item="item" c-label-text="Ruangan "></label>
+                </div>
+                <div class="grid_12">
+                    <input style="width: 100%;" kendo-combo-box k-ng-model="item.obj[32104792]" k-data-text-field="'text'"
+                        k-data-value-field="'value'" k-filter="'contains'" k-auto-bind="false"
+                        k-data-source="listRuangan" />
+                </div>
+            </div>
+
+            <div class="grid_12" style="margin-top: 20px">
+                <table style="width:100%;color: #4c5356;">
+                    <tr>
+                        <th colspan="2"
+                            style="width:150px;font-weight: bold;text-align: center;background-color: #dedfe2d3;">
+                            Tanggal </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104793]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104794]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104795]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104796]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104797]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104798]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104799]" kendo-datepicker
+                                        placeholer="YYYY:MM:DD" k-format="'dd-MM-yyyy'" />
+                            </div>
+                        </th>
+                        <th rowspan="2" style="background-color: #dedfe2d3;">Skor</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"
+                            style="width:150px;font-weight: bold;text-align: center;background-color: #dedfe2d3;">Jam
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104800]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104801]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104802]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104803]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104804]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104805]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input style="width: 100%" k-ng-model="item.obj[32104806]" kendo-timepicker
+                                    placeholer="HH:mm" k-format="'HH:mm'" />
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4" style="font-weight: bold;text-align: center;">
+                            Perilaku </th>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Bermain/Sesuai</th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104807]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104808]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104809]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104810]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104811]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104812]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104813]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">0</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Tidur</th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104814]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104815]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104816]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104817]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104818]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104819]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104820]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">1</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Irritable</th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104821]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104822]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104823]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104824]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104825]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104826]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104827]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">2</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            •	Letargi/bingung atau,<br>•	Berkurangnya respon terhadap nyeri
+                            </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104828]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104829]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104830]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104831]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104832]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104833]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104834]" type="text">
+                            </div>
+                        </th>
+                        <th style="text-align: center;">3</th>
+                    </tr>
+
+
+                    <tr>
+                        <th rowspan="4" style="font-weight: bold;text-align: center;">
+                            Kardiovaskuler </th>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Merah jambu atau waktu pengisian kapiler 1-2 detik</th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104835]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104836]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104837]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104838]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104839]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104840]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104841]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">0</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Pucat atau waktu pengisia kapiler 3 detik						
+                        </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104842]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104843]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104844]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104845]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104846]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104847]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104848]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">1</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            •	Abu-abu atau sianosis atau, <br>
+                            •	Waktu pengisian kapiler 4 detik atau,<br>
+                            •	Takikardia > 20 kali nilai normal
+                        </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104849]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104850]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104851]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104852]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104853]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104854]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104855]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">2</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            •	Abu-abu atau Mottled atau <br>
+                            •	Waktu pengisian kapiler ≥ 5 detik atau <br>
+                            •	Takikardia > 30 kali nilai normal atau <br>
+                            •	Bradikardia
+                        </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104856]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104857]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104858]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104859]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104860]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104861]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104862]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">3</th>
+                    </tr>
+
+                    <tr>
+                        <th rowspan="4" style="font-weight: bold;text-align: center;">
+                            Respirasi </th>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            Laju napas dan saturasi O2 dalam batas normal dan tidak ada peningkatan usaha napas
+                        </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104863]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104864]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104865]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104866]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104867]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104868]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104869]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">0</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            ≥ 10 diatas normal, penggunaan otot bantu napas ringan</th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104870]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104871]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104872]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104873]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104874]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104875]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104876]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">1</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            •	≥ 20 kali nilai normal, atau <br>
+                            •	Saturasi O2 5 poin dibawah normal atau <br>
+                            •	Penggunaan otot bantu napas sedang.
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104877]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104878]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104879]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104880]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104881]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104882]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104883]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">2</th>
+                    </tr>
+
+                    <tr>
+                        <th style="width:50px;font-weight: bold;font-size:8px;text-align: left;">
+                            •	Laju napas melambat dibawah normal atau <br>
+                            •	Peningkatan usaha napas atau <br>
+                            •	Saturasi O2 ≥ 5 dibawah nilai normal atau <br>
+                            •	Petraksi berat atau merintih 
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104884]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104885]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104886]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104887]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104888]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104889]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">
+                                <div class="grid_12">
+                                    <input class="k-textbox" ng-model="item.obj[32104890]" type="text">
+                                </div>
+                            </th>
+                        <th style="text-align: center;">3</th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2" style="font-weight: bold;text-align: center;">
+                            Total </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104891]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104892]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104893]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104894]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104895]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104896]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;">
+                            <div class="grid_12">
+                                <input class="k-textbox" ng-model="item.obj[32104897]" type="text" readonly>
+                            </div>
+                        </th>
+                        <th style="text-align: center;background-color: #dedfe2d3;"></th>
+                    </tr>
+
+                    <!-- <tr>
+                        <td style="font-weight: bold;">Total Skor </td>
+                        <td style="font-weight: bold;"> </td>
+                        <td ng-repeat="list in listSkor | orderBy:'id'" ng-init="jawabIndex = $index">
+                            <input c-text-box type="text" filter="" class="k-textbox" ng-model="item.obj[list.id]" />
+                        </td>
+                        <td style="font-weight: bold;"> </td>
+                    </tr>  -->
+
+                </table>
+
+                <table style="width:100%;color: #4c5356;margin-top:20px;border-color: transparent;">
+                    <tr>
+                        <td rowspan="7" style="font-size: 9px;">
+                            Catatan : <br>
+                            Skor 0 (abu-abu): Observasi minimal 3 kali sehari atau 1 kali/ shift dan tiap 4 jam untuk pasien pasca perawatan intensif <br>
+                            Skor 1-2 (hijau) : Observasi tiap 4 jam, PPJA adalah Ketua Tim <br>
+                            Skor 3-4 (kuning): Observasi terus-menerus tiap 1 jam sampai kondisi membaik (EWS < 5), PPJA adalah Ketua Tim dan hasil observasi di laporkan ke Dokter jaga perawatan <br>
+                            Skor  5 keatas (merah): Continuous monitoring dan penanganan dalam 30 menit, PPJA adalah Ketua Tim, hasil observasi di laporkan ke Dokter jaga perawatan untuk di laporkan ke DPJP
+                        </td>
+                        <td>USIA</td>
+                        <td>NADI NORMAL (ISTIRAHAT)</td>
+                        <td>PERNAPASAN NORMAL (ISTIRAHAT)</td>
+                    </tr>
+                    <tr>
+                        <td>Neonatus ( < 28 hari )</td>
+                        <td>90-160</td>
+                        <td>40-60</td>
+                    </tr>
+                    <tr>
+                        <td>Bayi (1 – 12 bulan)</td>
+                        <td>100-150</td>
+                        <td>30-50</td>
+                    </tr>
+                    <tr>
+                        <td>Batita (1 – 2 Tahun)</td>
+                        <td>70-110</td>
+                        <td>20-30</td>
+                    </tr>
+                    <tr>
+                        <td>Balita (3 – 5 Tahun)</td>
+                        <td>65-110</td>
+                        <td>20-25</td>
+                    </tr>
+                    <tr>
+                        <td>Usia sekolah (6-11 Tahun)</td>
+                        <td>60-100</td>
+                        <td>15-22</td>
+                    </tr>
+                    <tr>
+                        <td>Remaja (12-18 tahun)</td>
+                        <td>55-90</td>
+                        <td>12-18</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<div class="grid_12">
+    <div ng-include='"../app/module/EMR/TemplateButtonDinamis" '></div>
+
+</div>
