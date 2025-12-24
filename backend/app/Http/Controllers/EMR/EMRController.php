@@ -1436,8 +1436,9 @@ class EMRController  extends ApiController
         return $this->respond($result);
     }
 
-    public function getAntrianPasienDiperiksa($norecAPD,Request $request){
-//        $norecAPD = $request['norecAPD'];
+    public function getAntrianPasienDiperiksa($norecAPD, Request $request)
+    {
+        //        $norecAPD = $request['norecAPD'];
         $kdProfile = $this->getDataKdProfile($request);
         $idProfile = (int) $kdProfile;
         $data = \DB::table('antrianpasiendiperiksa_t as apd')
@@ -1454,21 +1455,67 @@ class EMRController  extends ApiController
             ->leftjoin('rekanan_m as rk', 'rk.id', '=', 'pd.objectrekananfk')
             ->leftjoin('kelas_m as kls', 'kls.id', '=', 'apd.objectkelasfk')
             ->leftJoin('pegawai_m as pg1', 'pg1.id', '=', 'pd.objectpegawaifk')
-            ->select('apd.norec', 'pd.noregistrasi', 'pd.tglregistrasi', 'ps.nocm', 'ps.nobpjs', 'ps.notelepon', 'ps.namapasien', 'ps.tgllahir', 'ru.objectdepartemenfk',
-                'alm.alamatlengkap', 'kps.kelompokpasien', 'ru.namaruangan', 'pg.namalengkap', 'jk.jeniskelamin', 'pd.norec as norec_pd',
-                'pdd.pendidikan', 'pk.pekerjaan','ru.objectdepartemenfk','pd.jenispelayanan',
-                'rk.namarekanan', 'kls.namakelas', 'pd.nocmfk', 'pd.objectkelompokpasienlastfk', 'apd.objectruanganfk', 'apd.objectpegawaifk',
-                'ps.objectjeniskelaminfk', 'apd.objectkelasfk', 'ps.objectgolongandarahfk', 'gd.golongandarah','ps.foto',
-//                DB::raw('encode(foto, \'base64\') AS foto'),
-                'pg1.namalengkap as dokterdpjp', 'pg1.id as iddpjp', 'pd.statusschedule as noreservasi')
-            ->where('apd.kdprofile',$idProfile)
+            ->leftJoin('pemakaianasuransi_t as pa', 'pa.noregistrasifk', '=', 'pd.norec')
+            ->leftJoin('agama_m as ag', 'ag.id', '=', 'ps.objectagamafk')
+            ->leftJoin('kebangsaan_m as kb', 'kb.id', '=', 'ps.objectkebangsaanfk')
+            ->leftJoin('statusperkawinan_m as sp', 'sp.id', '=', 'ps.objectstatusperkawinanfk')
+            ->select(
+                'apd.norec',
+                'pd.noregistrasi',
+                'pd.tglregistrasi',
+                 'pd.tglpulang',
+                'pd.tglmeninggal',
+                'ps.nocm',
+                'ps.nohp',
+                'ps.namapasien',
+                'ps.tgllahir',
+                'ru.objectdepartemenfk',
+                'alm.alamatlengkap',
+                'kps.kelompokpasien',
+                'ru.namaruangan',
+                'pg.namalengkap',
+                'jk.jeniskelamin',
+                'pd.norec as norec_pd',
+                'pdd.pendidikan',
+                'pk.pekerjaan',
+                'ru.objectdepartemenfk',
+                'pd.jenispelayanan',
+                'rk.namarekanan',
+                'kls.namakelas',
+                'pd.nocmfk',
+                'pd.objectkelompokpasienlastfk',
+                'apd.objectruanganfk',
+                'apd.objectpegawaifk',
+                'ps.objectjeniskelaminfk',
+                'apd.objectkelasfk',
+                'ps.objectgolongandarahfk',
+                'gd.golongandarah',
+                'ps.foto',
+                'ps.noidentitas',
+                'ps.nobpjs',
+                'pa.nosep',
+                // 'ps.ketalergi',
+                // 'ps.ketalergiobat',
+                'ag.agama',
+                'kb.name as kebangsaan',
+                'sp.statusperkawinan',
+                'ps.nohp',
+                'ps.tempatlahir',
+                DB::raw("case when pg.nippns is null then '-' else pg.nippns end as nip_dokter"),
+                DB::raw("case when pa.nosep is null then '-' else pa.nosep end as nosep"),
+                //                DB::raw('encode(foto, \'base64\') AS foto'),
+                'pg1.namalengkap as dokterdpjp',
+                'pg1.id as iddpjp',
+                'pd.statusschedule as noreservasi'
+            )
+            ->where('apd.kdprofile', $idProfile)
             ->where('apd.norec', $norecAPD);
 
         $data = $data->first();
-//        if ($data->foto != null) {
-////            $data->foto = "data:image/jpeg;base64," . base64_encode($data->foto);
-//            $data->foto = "data:image/jpeg;base64," . $data->foto;
-//        }
+        //        if ($data->foto != null) {
+        ////            $data->foto = "data:image/jpeg;base64," . base64_encode($data->foto);
+        //            $data->foto = "data:image/jpeg;base64," . $data->foto;
+        //        }
         $result = array(
             'result' => $data,
             'message' => 'Inhuman',
